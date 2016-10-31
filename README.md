@@ -3,8 +3,11 @@
 A gem for ensuring that database queries do not execute while
 rendering templates in a Rails application.
 
-This is a work in progress, as it does not currently work in multi-threaded
-environments (e.g. Puma).
+With great power comes great responsibility. ERB is an extremely flexible templating language, but can also . Gems like [`bullet`](https://github.com/flyerhzm/bullet) are great for detecting N+1 queries within an application. But for those of us that want to go the extra mile and **prevent any database access from within a template**, this gem is for you.
+
+Doing this helps keep all database access centralized to your controller layer.
+
+Pull Requests welcome to enable other methods of generating responses (RABL, etc.)
 
 ## Installation
 
@@ -22,8 +25,7 @@ And then execute:
 
 ## Usage
 
-Errors will be raised whenever a request issues a SQL statement from
-within a template.
+Errors will be raised whenever a request issues a SQL statement from within a template.
 
 ## Development
 
