@@ -1,7 +1,6 @@
 # StrictTemplates
 
-A gem for ensuring that database queries do not execute while
-rendering templates in a Rails application.
+A gem for ensuring that database queries do not execute while rendering templates in a Rails application.
 
 With great power comes great responsibility. ERB is an extremely flexible templating language, but can also . Gems like [`bullet`](https://github.com/flyerhzm/bullet) are great for detecting N+1 queries within an application. But for those of us that want to go the extra mile and **prevent any database access from within a template**, this gem is for you.
 
@@ -19,9 +18,17 @@ group :development, :test do
 end
 ```
 
-And then execute:
+And then do your normal:
 
     $ bundle
+    
+Next, include `StrictTemplates::Concern` in all controllers you wish to prevent database queries while rendering. If it's a new app, you should include it in your `ApplicationController`, e.g.
+
+```ruby
+class ApplicationController < ActionController::Base
+  include StrictTemplates::Concern
+end
+```
 
 ## Usage
 
