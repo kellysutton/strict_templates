@@ -1,7 +1,4 @@
-require 'strict_templates/version'
-require 'strict_templates/state_collector'
-require 'strict_templates/subscriber'
-require 'strict_templates/railtie' if defined?(Rails)
+require 'strict_templates/concern'
 
 module StrictTemplates
 end
