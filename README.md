@@ -1,4 +1,4 @@
-# StrictTemplates
+# StrictTemplates [![Build Status](https://travis-ci.org/kellysutton/strict_templates.svg?branch=master)](https://travis-ci.org/kellysutton/strict_templates)
 
 A gem for ensuring that database queries do not execute while rendering templates in a Rails application.
 
@@ -21,7 +21,7 @@ end
 And then do your normal:
 
     $ bundle
-    
+
 Next, include `StrictTemplates::Concern` in all controllers you wish to prevent database queries while rendering. If it's a new app, you should include it in your `ApplicationController`, e.g.
 
 ```ruby
