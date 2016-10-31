@@ -10,7 +10,7 @@ module StrictTemplates
       def render(*args, &block)
         callback = lambda do |name, start, finish, id, payload|
           if !should_ignore_sql_statement?(payload[:name])
-            raise SqlPerformedWithinTemplateError.new("A SQL request was issued within the template: \n  #{payload[:sql]}")
+            raise SQLPerformedWithinTemplateError.new("A SQL request was issued within the template: \n  #{payload[:sql]}")
           end
         end
 
