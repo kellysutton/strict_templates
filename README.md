@@ -34,6 +34,22 @@ end
 
 Errors will be raised whenever a request issues a SQL statement from within a template.
 
+It's recommended that you do not raise exceptions within your production or production-like environments. Exceptions can be disabled wholesale with the following Rails config flag:
+
+```ruby
+Rails.application.configure do
+  config.strict_templates.raise_on_queries = false
+end
+```
+
+Alternatively, you can specify a custom error handler to log the errors or do something else interesting with them:
+
+```ruby
+Rails.application.configure do
+  config.strict_templates.error_handler = ->(error) { Bugsnag.report(error) }
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
